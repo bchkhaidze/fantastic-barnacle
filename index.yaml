@@ -1,3 +1,14 @@
 apiVersion: v1
-entries: {}
-generated: "2023-12-10T22:55:49.230539+04:00"
+entries:
+  nginx-deploy-test:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-12-10T19:24:15.993275839Z"
+    description: A Helm chart for Kubernetes
+    digest: 43d68fadb90785f5d531d8fe47dfb58da626b89865141aac2ebb0f0094b7bf1f
+    name: nginx-deploy-test
+    type: application
+    urls:
+    - https://github.com/bchkhaidze/fantastic-barnacle/releases/download/nginx-deploy-test-1.0.0/nginx-deploy-test-1.0.0.tgz
+    version: 1.0.0
+generated: "2023-12-10T19:24:15.99329787Z"
