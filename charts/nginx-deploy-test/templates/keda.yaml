@@ -1,0 +1,22 @@
+{{- if .Values.keda.enabled -}}
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: {{ include "test-nginx-chart.fullname" . }}
+spec:
+  scaleTargetRef:
+    name: {{ include "test-nginx-chart.fullname" . }}
+  pollingInterval: 10   # adjust as needed
+  cooldownPeriod: 30    # adjust as needed
+  minReplicaCount: {{ .Values.keda.minReplicaCount }}
+  maxReplicaCount: {{ .Values.keda.maxReplicaCount }}
+  triggers:
+  - type: cpu
+    metricType: Utilization
+    metadata:        
+        value: "{{ .Values.keda.cpuTargetPercentage }}"        
+  - type: memory
+    metricType: Utilization
+    metadata:      
+        value: "{{ .Values.keda.memTargetPercentage }}"  
+{{- end -}}      
